@@ -81,17 +81,25 @@ require __DIR__ . "/includes/header.php";
         </div>
 
         <p class="sec-text mb-30">
-          We help homeowners and businesses across California upgrade, restore, and build with confidence. Our team combines experience,
-          reliable scheduling, and clean workmanship to deliver results you can be proud of.
+          At JR Elite Builders, we help Southern California homeowners transform their spaces—inside and out. From interior remodels and home additions to stunning outdoor living areas, we handle it all with skill, care, and attention to detail.
         </p>
         <p class="sec-text mb-30">
-          From floors and kitchens to exterior upgrades and roofing, we plan each project carefully—then execute with the same attention
-          to detail from demo through finish work.
+          With over 30 years of experience, we’ve seen it all—and we know how to bring your vision to life, no matter the size or scope of the project. Whether it’s a small interior upgrade, a major remodel, or a custom outdoor living space, our team is dedicated to making the process smooth, stress-free, while delivering results that last.
+        </p>
+         <p class="sec-text mb-30">
+        No matter the project, JR Elite Builders has you covered. Let us help you reimagine your home and create spaces you’ll love for years to come. Contact us today to get started!
         </p>
         <p class="sec-text mb-30">
           Tell us what you're trying to accomplish. We'll help you pick the best approach, materials, and timeline—and provide a clear,
           detailed estimate.
         </p>
+       <p class="sec-text mb-30">Why Homeowners Trust JR Elite Builders</p>
+
+    <ul>
+      <li>30+ years of experience transforming homes across Southern California</li>
+      <li>Expertise in interior remodels, home additions, ADUs, and outdoor living spaces</li>
+      <li>A hands-on, hardworking team committed to quality, reliability, and care</li>
+    </ul>
       </div>
     </div>
   </div>
@@ -261,7 +269,7 @@ require __DIR__ . "/includes/header.php";
               we bring practical planning and strong craftsmanship to every job.
             </p>
             <p class="sec-text mb-30">
-              Our work spans flooring, kitchens and baths, roofing repairs and replacements, and outdoor improvements—built with
+              Our work spans kitchens and baths,  repairs and replacements, and outdoor improvements—built with
               quality materials and careful execution.
             </p>
             <p class="sec-text mb-30">
@@ -288,12 +296,7 @@ require __DIR__ . "/includes/header.php";
       <div class="col-lg-7">
         <div class="title-area mb-20">
           <h2 class="sec-title text-white">Building California Homes with Elite Craftsmanship</h2>
-        </div>
-        <div class="project-cta_wrapper">
-          <div class="project-cta">
-            <p class="project-text">Your Trusted Partner for Roofing, Remodeling, and Flooring</p>
-          </div>
-        </div>
+        </div>        
       </div>
 
       <div class="col-lg-5">
@@ -321,7 +324,7 @@ require __DIR__ . "/includes/header.php";
         <div class="title-area mb-30">
           <span class="sub-title style1">Get In Touch</span>
           <h2 class="sec-title">Have An Upcoming Project? Let’s Talk!</h2>
-          <p class="sec-text mb-30">Call or email to get a free estimate—tell us your goals, timeline, and location in California.</p>
+          <p class="sec-text mb-30">Call or email to get a free estimate—tell us your goals, timeline, and location in Fullerton, CA.</p>
           <a href="contact.php" class="th-btn th-icon">Get a Free Estimate<i class="fa-regular fa-arrow-right ms-2"></i></a>
         </div>
       </div>
