@@ -188,7 +188,7 @@ if (!isset($pageTitle)) $pageTitle = "JR Elite Builders";
                       <circle cx="12" cy="10" r="3"></circle>
                     </svg>
                   </span>
-                  <span>California, USA</span>
+                  <span>Fullerton, CA</span>
                 </li>
 
                 <li>
