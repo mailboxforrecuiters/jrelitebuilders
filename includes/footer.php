@@ -156,7 +156,7 @@
                 <div class="about-logo">
                   <a href="index.php"><img src="https://www.jrelitebuilders.com/assets/img/logo.png" alt="JR Elite Builders"></a>
                 </div>
-                <p class="about-text">JR Elite Builders delivers dependable, detail-driven construction and remodeling across California—built around quality materials, skilled workmanship, and clear communication.</p>
+                <p class="about-text">JR Elite Builders delivers dependable, detail-driven construction and remodeling across Southern California—built around quality materials, skilled workmanship, and clear communication.</p>
 
                 <div class="th-social">
                   <a href="https://www.facebook.com/jrelitebuilders/" title="facebook" aria-label="Facebook" target="_blank" rel="noopener">
@@ -265,7 +265,7 @@
                         <path d="M12 2.75A6.75 6.75 0 0 0 5.25 9.5c0 4.88 5.47 10.44 6.1 11.07a.93.93 0 0 0 1.3 0c.63-.63 6.1-6.19 6.1-11.07A6.75 6.75 0 0 0 12 2.75Zm0 9.25a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/>
                       </svg>
                     </span>
-                    <p class="footer-info">California, USA</p>
+                    <p class="footer-info">Fullerton, California, USA</p>
                   </div>
                 </div>
 
@@ -301,7 +301,7 @@
               <h4 class="widget_title">Our Location</h4>
               <div class="newsletter-widget">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6511951.459901925!2d-124.59221395479265!3d37.160692955957906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb9fe5f285e3d%3A0x8b5109a227086f55!2sCalifornia%2C%20USA!5e0!3m2!1sen!2sni!4v1747016769007!5m2!1sen!2sni"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106050.49788461123!2d-117.9810603!3d33.8703649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd2b35a5c0f1c9%3A0x33e63a64a6b7403d!2sFullerton%2C%20CA!5e0!3m2!1sen!2sus!4v1747017000000!5m2!1sen!2sus"
                   width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
