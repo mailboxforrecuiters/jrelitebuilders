@@ -2,59 +2,9 @@
 $page = "contact";
 $pageTitle = "Contact | JR Elite Builders";
 
-/**
- * Optional basic handler (mail()).
- * If your host doesn't support mail(), swap this for SMTP (PHPMailer) or your form provider.
- */
-$sent = false;
-$error = "";
-$name = "";
-$email = "";
-$phone = "";
-$message = "";
-
 if (!function_exists('jre_h')) {
   function jre_h($s) {
     return htmlspecialchars((string)$s, ENT_QUOTES, "UTF-8");
-  }
-}
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  $name    = trim((string)($_POST["name"] ?? ""));
-  $email   = trim((string)($_POST["email"] ?? ""));
-  $phone   = trim((string)($_POST["phone"] ?? ""));
-  $message = trim((string)($_POST["message"] ?? ""));
-
-  if ($name === "" || $email === "" || $message === "") {
-    $error = "Please fill out your name, email, and message.";
-  } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $error = "Please enter a valid email address.";
-  } else {
-    // prevent header injection
-    $emailSafe = preg_replace("/[\\r\\n]+/", "", $email);
-
-    $to = "jrelitebuilders@gmail.com";
-    $subject = "JR Elite Builders - Website Contact Form";
-    $body =
-      "Name: {$name}\n" .
-      "Email: {$email}\n" .
-      "Phone: {$phone}\n\n" .
-      "Message:\n{$message}\n";
-
-    $headers =
-      "From: {$emailSafe}\r\n" .
-      "Reply-To: {$emailSafe}\r\n" .
-      "Content-Type: text/plain; charset=UTF-8\r\n";
-
-    $ok = @mail($to, $subject, $body, $headers);
-    $sent = $ok ? true : false;
-
-    if (!$sent) {
-      $error = "Your message could not be sent from this server. Please call or email us directly.";
-    } else {
-      // clear fields on success
-      $name = $email = $phone = $message = "";
-    }
   }
 }
 
@@ -95,7 +45,7 @@ require __DIR__ . "/includes/header.php";
           </div>
           <div class="jre-contact-text">
             <h4>Our Address</h4>
-            <p>California, USA</p>
+            <p>Fullerton, USA</p>
           </div>
         </div>
 
@@ -127,34 +77,43 @@ require __DIR__ . "/includes/header.php";
         </div>
       </div>
 
-      <!-- Right: Contact Form (this replaces where the map used to be) -->
+      <!-- Right: Contact Form -->
       <div class="col-lg-8">
         <div class="jre-form">
           <h3 class="jre-form-title">Send a Message</h3>
 
-          <?php if ($sent): ?>
-            <div class="alert alert-success mb-4">Thanks! We received your message and will get back to you soon.</div>
-          <?php elseif ($error): ?>
-            <div class="alert alert-warning mb-4"><?php echo jre_h($error); ?></div>
-          <?php endif; ?>
+          <div id="jre-contact-alert" class="alert mb-4" style="display:none;"></div>
 
-          <form method="post" action="contact.php" novalidate>
+          <form id="jre-contact-form"
+                method="post"
+                action="https://www.vipkaraokelounge.com/jrendpoint.php"
+                novalidate>
+            <input type="hidden" name="ajax" value="1">
+            <input type="text"
+                   name="website"
+                   value=""
+                   tabindex="-1"
+                   autocomplete="off"
+                   aria-hidden="true"
+                   style="position:absolute; left:-9999px; opacity:0; pointer-events:none;">
+
             <div class="row g-3">
               <div class="col-md-6">
-                <input class="form-control" type="text" name="name" placeholder="Full Name*" required value="<?php echo jre_h($name); ?>">
+                <input class="form-control" type="text" name="name" placeholder="Full Name*" required>
               </div>
               <div class="col-md-6">
-                <input class="form-control" type="email" name="email" placeholder="Email*" required value="<?php echo jre_h($email); ?>">
+                <input class="form-control" type="email" name="email" placeholder="Email*" required>
               </div>
               <div class="col-md-6">
-                <input class="form-control" type="text" name="phone" placeholder="Phone (optional)" value="<?php echo jre_h($phone); ?>">
+                <input class="form-control" type="text" name="phone" placeholder="Phone (optional)">
               </div>
               <div class="col-12">
-                <textarea class="form-control" name="message" rows="7" placeholder="Tell us about your project*" required><?php echo jre_h($message); ?></textarea>
+                <textarea class="form-control" name="message" rows="7" placeholder="Tell us about your project*" required></textarea>
               </div>
               <div class="col-12">
-                <button type="submit" class="th-btn th-icon w-100">
-                  Send Message<i class="fa-regular fa-arrow-right ms-2"></i>
+                <button type="submit" class="th-btn th-icon w-100" id="jre-contact-submit">
+                  <span class="jre-btn-label">Send Message</span>
+                  <i class="fa-regular fa-arrow-right ms-2"></i>
                 </button>
               </div>
             </div>
@@ -175,14 +134,18 @@ require __DIR__ . "/includes/header.php";
   <div class="container">
     <div class="jre-map jre-map--full">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6511951.459901925!2d-124.59221395479265!3d37.160692955957906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb9fe5f285e3d%3A0x8b5109a227086f55!2sCalifornia%2C%20USA!5e0!3m2!1sen!2sni!4v1747016769007!5m2!1sen!2sni"
-        width="100%" height="520" style="border:0;" allowfullscreen="" loading="lazy"
+        src="https://www.google.com/maps?q=Fullerton,+CA&output=embed"
+        width="100%"
+        height="520"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
 
-<!-- Get in Touch (kept as-is) -->
+<!-- Get in Touch -->
 <div class="space overflow-hidden">
   <div class="container">
     <div class="row gy-5">
@@ -237,7 +200,7 @@ require __DIR__ . "/includes/header.php";
 .jre-contact-text a{ color:inherit; text-decoration:none; }
 .jre-contact-text a:hover{ text-decoration:underline; }
 
-/* Make the *second* card darker like the original design */
+/* Dark card */
 .jre-contact-card--dark .jre-contact-icon{
   background:#121828;
   color:#fff;
@@ -246,7 +209,7 @@ require __DIR__ . "/includes/header.php";
   color:#8b95be;
 }
 
-/* Right: form styling to match the theme/card look */
+/* Right: form styling */
 .jre-form{
   background:#fff;
   border-radius:12px;
@@ -273,6 +236,163 @@ require __DIR__ . "/includes/header.php";
 .jre-map iframe{ width:100%; height:100%; min-height:330px; display:block; }
 .jre-map--full{ min-height:520px; }
 .jre-map--full iframe{ min-height:520px; }
+
+#jre-contact-alert.alert-success{
+  display:block;
+}
+#jre-contact-alert.alert-warning{
+  display:block;
+}
+#jre-contact-submit[disabled]{
+  opacity:.7;
+  cursor:not-allowed;
+}
 </style>
+
+<script>
+(function (window, document) {
+  "use strict";
+
+  // Prevent duplicate initialization if this script is included more than once
+  if (window.__JRE_CONTACT_FORM_INIT__) {
+    return;
+  }
+  window.__JRE_CONTACT_FORM_INIT__ = true;
+
+  var FORM_ID = "jre-contact-form";
+  var ALERT_ID = "jre-contact-alert";
+  var SUBMIT_ID = "jre-contact-submit";
+  var SUCCESS_MESSAGE = "Thanks! We received your message and will get back to you soon.";
+  var ERROR_MESSAGE = "Your message could not be sent from this server. Please call or email us directly.";
+  var REQUIRED_MESSAGE = "Please fill out your name, email, and message.";
+  var CONVERSION_SEND_TO = "AW-17807260901/sKOyCM6FkOUbEOX5lKtC";
+
+  var form = document.getElementById(FORM_ID);
+  var alertBox = document.getElementById(ALERT_ID);
+  var submitBtn = document.getElementById(SUBMIT_ID);
+  var btnLabel = submitBtn ? submitBtn.querySelector(".jre-btn-label") : null;
+
+  // Bail safely if required elements do not exist
+  if (!form || !alertBox || !submitBtn) {
+    return;
+  }
+
+  // Prevent duplicate event listeners if the DOM/script is re-rendered
+  if (form.dataset.jreContactBound === "1") {
+    return;
+  }
+  form.dataset.jreContactBound = "1";
+
+  var isSubmitting = false;
+
+  function showAlert(typeClass, message) {
+    alertBox.className = "alert mb-4 " + typeClass;
+    alertBox.textContent = message || "";
+    alertBox.style.display = "block";
+  }
+
+  function clearAlert() {
+    alertBox.className = "alert mb-4";
+    alertBox.textContent = "";
+    alertBox.style.display = "none";
+  }
+
+  function setLoading(state) {
+    isSubmitting = state;
+    submitBtn.disabled = state;
+
+    if (btnLabel) {
+      btnLabel.textContent = state ? "Sending..." : "Send Message";
+    }
+  }
+
+  function getTrimmedFormValue(formData, key) {
+    return String(formData.get(key) || "").trim();
+  }
+
+  function validate(formData) {
+    var name = getTrimmedFormValue(formData, "name");
+    var email = getTrimmedFormValue(formData, "email");
+    var message = getTrimmedFormValue(formData, "message");
+
+    if (!name || !email || !message) {
+      return {
+        ok: false,
+        message: REQUIRED_MESSAGE
+      };
+    }
+
+    return {
+      ok: true
+    };
+  }
+
+  function fireGoogleConversion() {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "conversion", {
+        send_to: CONVERSION_SEND_TO
+      });
+    }
+  }
+
+  async function submitForm(event) {
+    event.preventDefault();
+
+    if (isSubmitting) {
+      return;
+    }
+
+    clearAlert();
+
+    var formData = new FormData(form);
+    var validation = validate(formData);
+
+    if (!validation.ok) {
+      showAlert("alert-warning", validation.message);
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      var response = await window.fetch(form.action, {
+        method: "POST",
+        body: formData,
+        mode: "cors",
+        headers: {
+          "Accept": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
+        }
+      });
+
+      var data;
+      try {
+        data = await response.json();
+      } catch (jsonError) {
+        throw new Error("Invalid JSON response from endpoint.");
+      }
+
+      if (!response.ok || !data || data.ok !== true) {
+        showAlert(
+          "alert-warning",
+          (data && data.message) ? data.message : ERROR_MESSAGE
+        );
+        return;
+      }
+
+      fireGoogleConversion();
+      showAlert("alert-success", data.message || SUCCESS_MESSAGE);
+      form.reset();
+    } catch (error) {
+      showAlert("alert-warning", ERROR_MESSAGE);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  form.addEventListener("submit", submitForm, false);
+
+})(window, document);
+</script>
 
 <?php require __DIR__ . "/includes/footer.php"; ?>

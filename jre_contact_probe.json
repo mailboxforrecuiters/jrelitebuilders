@@ -1,0 +1,29 @@
+{
+    "ok": true,
+    "written_at": "2026-03-11T23:03:40+00:00",
+    "data": {
+        "probe": "jre_contact_alignment_test",
+        "endpoint_host": "www.vipkaraokelounge.com",
+        "is_allowed_origin": true,
+        "request_method": "POST",
+        "http_origin": "https://www.jrelite-builders.com",
+        "http_referer": "https://www.jrelite-builders.com/",
+        "x_requested_with": "XMLHttpRequest",
+        "post_keys": [
+            "ajax",
+            "website",
+            "name",
+            "email",
+            "phone",
+            "message"
+        ],
+        "received_fields": {
+            "name": "s df d sd",
+            "email": "sfds@gmail.com",
+            "phone": "1112223333",
+            "message_length": 22,
+            "website_honeypot_filled": false,
+            "ajax": "1"
+        }
+    }
+}
