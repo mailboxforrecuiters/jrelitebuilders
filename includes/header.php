@@ -116,6 +116,7 @@ if (!isset($pageTitle)) $pageTitle = "JR Elite Builders";
       stroke-linejoin: round;
     }
   </style>
+  <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17807260901"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-17807260901'); </script> 
 </head>
 
 <body>
@@ -276,7 +277,15 @@ if (!isset($pageTitle)) $pageTitle = "JR Elite Builders";
 
             <div class="col-auto d-none d-xl-block">
               <div class="header-button">
-                <a href="contact.php" class="th-btn th-icon">GET A FREE ESTIMATE<i class="fa-regular fa-arrow-right ms-2"></i></a>
+                <a href="contact.php" class="th-btn th-icon">
+  <span>GET A FREE ESTIMATE</span>
+  <span class="btn-inline-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7 17L17 7"></path>
+      <path d="M8 7h9v9"></path>
+    </svg>
+  </span>
+</a>
               </div>
             </div>
 
